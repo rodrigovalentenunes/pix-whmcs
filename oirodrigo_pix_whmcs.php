@@ -168,7 +168,7 @@ function oirodrigo_pix_whmcs_link($params) {
             . '<p style="font-size:12px; margin-bottom: 5px;"><i>Chave Pix:</i> <b>'.$chavePix.'</b><br>'
             . '<p style="font-size:12px; margin-bottom: 5px;"><i>Beneficiário:</i> <b>'.$beneficiario.'</b><br>'
             . '<p style="font-size:12px; margin-bottom: 5px;"><i>Instituição:</i> <b>'.$instituicao.'</b><br>'
-            . '<p><b></b></p><style>.payment-btn-container{background: #f1f1f1;padding: 15px;border: solid 3px #ccc;border-radius:6px;}</style>';
+            . '<p><b></b></p><style>.payment-btn-container{background: #f1f1f1;padding: 30px 15px;border: solid 3px #ccc;border-radius:6px;}</style>';
 
     return $htmlOutput;
 }
