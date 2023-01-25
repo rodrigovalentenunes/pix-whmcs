@@ -120,7 +120,7 @@ function oirodrigo_pix_whmcs_link($params) {
 
     $pix       = \PhpPix\Pix::generateCode( $chavePix, $beneficiario, $cidade, $identificador , $amount );
     $Img       = \PhpPix\Pix::generateQrCodePIX( $pix );
-    
+
     $urlQrCodePix = "data:image/png;base64,". base64_encode( $Img );
 
     $formatter = new NumberFormatter('pt_BR', NumberFormatter::CURRENCY);
@@ -131,15 +131,15 @@ function oirodrigo_pix_whmcs_link($params) {
 
             try {
                 var aux = document.createElement("input");
-                
+
                 link = "' . $pix . '";
-                
+
                 // Get the text from the element passed into the input
                 aux.setAttribute("value", link);
-                
+
                 // Append the aux input to the body
                 document.body.appendChild(aux);
-                
+
                 // Highlight the content
                 aux.select();
 
@@ -151,7 +151,7 @@ function oirodrigo_pix_whmcs_link($params) {
 
                 document.getElementById("pix_copiado").innerHTML = \'<span style="color:green;">Copiado!</span>\';
                 // alert("Código Pix Copiado!");
-            
+
             } catch (e) {
                 //alert("Erro");
             }
@@ -159,17 +159,15 @@ function oirodrigo_pix_whmcs_link($params) {
         }
     </script>';
 
-    $htmlOutput .= '
-    <h3><b>Valor: ' . $formatter->formatCurrency($amount, 'BRL') . '</b></h3>'
-            . '<p>' . '<img src="'.$urlQrCodePix.'">' . '</p>'
+    $htmlOutput .= '<p>' . '<img src="'.$urlQrCodePix.'">' . '</p>'
             . '<p><strong>Pix Copia e Cola:</strong><br><i id="pix_copiado" onclick="javascript:copiarPix();">(Clique para copiar o código)</i></p>'
             . '<textarea readonly name="textarea" style="cursor:pointer;border:solid 2px #ccc;border-radius:6px;padding:6px;background:#fff;font-family:sans-serif;font-size:9px;overflow:hidden;word-break:break-all;" onclick="javascript:copiarPix();"
    rows="5" cols="30"
    minlength="10" maxlength="20">' . $pix . '</textarea>'
-            . '</p><p/><hr />'
-            . '<p><i>Chave Pix:</i> <b>'.$chavePix.'</b><br>'
-            . '<p><i>Beneficiário:</i> <b>'.$beneficiario.'</b><br>'
-            . '<p><i>Instituição:</i> <b>'.$instituicao.'</b><br>'
+            . '</p><p/><hr /><h3><b>Valor: ' . $formatter->formatCurrency($amount, 'BRL') . '</b></h3>'
+            . '<p style="font-size:12px; margin-bottom: 10px;"><i>Chave Pix:</i> <b>'.$chavePix.'</b><br>'
+            . '<p style="font-size:12px; margin-bottom: 10px;"><i>Beneficiário:</i> <b>'.$beneficiario.'</b><br>'
+            . '<p style="font-size:12px; margin-bottom: 10px;"><i>Instituição:</i> <b>'.$instituicao.'</b><br>'
             . '<p><b></b></p><style>.payment-btn-container{background: #f1f1f1;padding: 15px;border: solid 3px #ccc;border-radius:6px;}</style>';
 
     return $htmlOutput;
