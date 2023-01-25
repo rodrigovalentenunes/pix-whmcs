@@ -165,9 +165,9 @@ function oirodrigo_pix_whmcs_link($params) {
    rows="5" cols="30"
    minlength="10" maxlength="20">' . $pix . '</textarea>'
             . '</p><p/><hr /><h3><b>Valor: ' . $formatter->formatCurrency($amount, 'BRL') . '</b></h3>'
-            . '<p style="font-size:12px; margin-bottom: 10px;"><i>Chave Pix:</i> <b>'.$chavePix.'</b><br>'
-            . '<p style="font-size:12px; margin-bottom: 10px;"><i>Beneficiário:</i> <b>'.$beneficiario.'</b><br>'
-            . '<p style="font-size:12px; margin-bottom: 10px;"><i>Instituição:</i> <b>'.$instituicao.'</b><br>'
+            . '<p style="font-size:12px; margin-bottom: 5px;"><i>Chave Pix:</i> <b>'.$chavePix.'</b><br>'
+            . '<p style="font-size:12px; margin-bottom: 5px;"><i>Beneficiário:</i> <b>'.$beneficiario.'</b><br>'
+            . '<p style="font-size:12px; margin-bottom: 5px;"><i>Instituição:</i> <b>'.$instituicao.'</b><br>'
             . '<p><b></b></p><style>.payment-btn-container{background: #f1f1f1;padding: 15px;border: solid 3px #ccc;border-radius:6px;}</style>';
 
     return $htmlOutput;
